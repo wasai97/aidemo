@@ -1,0 +1,20 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: robit-demo
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql:/121.89.214.63:3306/aidemo?useSSL=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+CallURL: http://183.62.68.93:8094/AIOBS/duty/getStandardDuty
+CheckStateURL: http://183.62.68.93:8094/AIOBS/duty/queryDutyStateMent?dutyId=
+CheckContentURL: http://183.62.68.93:8094/AIOBS/duty/getRecordsById?dutyId=
+CheckRadioURL: http://183.62.68.93:8094/AIOBS/ftpUpload/downLoadAllRadio?
+fastDFURL: http://14.116.186.147:48085/uploadFile

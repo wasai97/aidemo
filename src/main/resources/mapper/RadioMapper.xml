@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunzhiyin.demo.mapper.RadioMapper">
+
+    <insert id="insert" parameterType="com.yunzhiyin.demo.pojo.Radio">
+        insert into tb_radio(dutyId,callId,phoneNumber,radioAddress,id)
+        values
+        <foreach collection="radios" item="Radio" separator=",">
+            (#{Radio.dutyId},#{Radio.callId},#{Radio.phoneNumber},#{Radio.radioAddress},#{Radio.id})
+        </foreach>
+    </insert>
+
+    <select id="getRadio" resultType="java.lang.String" >
+        select radioAddress from tb_radio where dutyId = #{dutyId} and phoneNumber = #{phoneNumber} and id = #{id}
+    </select>
+</mapper>
